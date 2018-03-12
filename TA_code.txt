@@ -1,0 +1,80 @@
+var teachermode = $teachermode;
+            /* axis definition. [ x_min, x_max , y_min, y_max] style. */
+            var axes = $axes;  
+            /* pixel steps between lines for spline drawing, 10 is sufficient */
+            var draw_steps = 10;
+            var canvasDef = $canvasDef;
+            var major_grid_lines = $major_grid_lines;
+            var minor_grid_lines = $minor_grid_lines;
+            var axis_defintion = $axis_defintion;
+            var backgroundlines = $backgroundlines;
+            var errormessages ="";
+            var AnswerStr = "";
+            var gradebook = false;
+            
+                        /* canvas size in gradebook is 1/2 of the normal "student view" canvas */
+            var gradebookScale = 2;
+            
+            
+            
+jQuery.getScript('/mapleta/web/Masterclass/Public_Html/run_app.js', function(){ 
+            
+               
+
+
+            });
+
+            function initialize(interactiveMode){
+                /*Called when the question is being initialized.
+interactiveMode:	if it is true, interaction is allowed on question.
+*/
+                /*Your code starts from here:*/
+                gradebook = !interactiveMode;
+                if (gradebook){
+                    \$( "#dd" ).remove();
+                    \$( "#ddall" ).remove();
+                    \$( "#mm" ).remove();
+                    \$( "#mmax" ).remove();
+                    \$( "#cont" ).remove();
+                    \$( "#minorR" ).remove();
+                    \$( "#majorR" ).remove();
+                    \$( "#contrast" ).remove();
+                    \$( "#xmin" ).remove();
+                    \$( "#xmax" ).remove();
+                    \$( "#ymin" ).remove();
+                    \$( "#ymax" ).remove();
+                    \$( "#kk" ).remove();
+                    \$( "#ymax" ).remove();     
+                    }
+            };
+
+            function setFeedback(response, answer){
+                /*called when response or answer is going to be rendered.
+response: 	student's response of question.
+answer: 	correct answer of question.*/
+
+                if (response == "No answer" && answer == null) {  
+                    /* not yet attempted, not in the gradebook */
+                    var temp = [];
+                    run(temp, 1);
+
+                } else if (answer == null) {
+                    run(response, 2);
+
+
+                } else if (answer != null) {
+                    /* attempted, in gradebook */
+                    run(answer, 3);
+
+
+                }
+
+            };
+
+            function getResponse(){
+                /*called when grade button is clicked,
+to retrieve back student's response.*/
+                /*Your code starts from here:*/
+                console.log(AnswerStr);
+                return AnswerStr;
+            };

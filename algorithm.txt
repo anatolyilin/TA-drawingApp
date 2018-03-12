@@ -1,0 +1,80 @@
+$teachermode = "false";
+$antw = "[[-6,0],[-2,0],[-1,0.5],[0,1.5],[1,0.5],[2,0],[6,0]]"; # is $antw1 in mathapp
+$antw1=maple("$antw");
+$axes = "[-10,10,-2,2]"; # is $listranges maple("[-6..0,-3..3]");
+$canvasWidth = "800px";
+$canvasHeight = "400px";
+$canvasDef = "{
+                width: 800,
+                height: 400,
+                vPad: 20,
+                hPad: 20
+            }";
+#is $BgPoints maple("[[-10, 0],[-7, 0],[-6.5, 0], [-6, 0], [0, 1.5], [6, 0], [6.5, 0],[7, 0],[10, 0]]"); 
+$backgroundlines = "{  
+                lijn1: { 
+                    x: [-10,-7,-6.5, -6,    0, 6 , 6.5, 7, 10],
+                    y: [ 0,  0,   0,  0,  1.5, 0 ,  0 , 0,  0],
+                    lineColor: 'green',
+                    lineColorGreyShade: -1,
+                    lineThickness: 1
+                }
+            }";
+$axis_defintion = "{
+                y_axis_position: 'auto',
+                yLabelNumberPrecision: 0,
+                yLabelColor: 'black',
+                yLabelJustification: 'center',
+                yLabelPositionVertical: +5,
+                yLabelPositionHorizontal:  15,
+                yLabelShowZero: false,
+                yAxisFlipped: false,
+                yAxisArrow: true,
+                yFontSize: 10,
+                yAxisName: 'S/Snet' ,
+                yAxisNameFontSize : 15,
+                yAxisNameFontColor : 'black',
+                yAxisNameJustification : 'center',
+                yAxisNameVertical: 0,
+                yAxisNameHorizontal: 15,
+                yAxisNameOrientation: 90,
+                x_axis_position: 'auto',
+                xLabelColor: 'black',
+                xLabelJustification: 'center',
+                xLabelPositionVertical: +18,
+                xLabelPositionHorizontal: 0,
+                xLabelShowZero: false ,
+                xLabelFontSize : 10,
+                xAxisFlipped: false,
+                xAxisArrow: true,
+                xAxisName: 'km' ,
+                xAxisNameFontSize : 15,
+                xAxisNameFontColor : 'black',
+                xAxisNameJustification : 'center',
+                xAxisNameVertical: 25,
+                xAxisNameHorizontal: 0,
+                AxisLineColor: 'black',
+                AxisLineThickness: 1,
+                AxisArrowSize: 10,
+                AxisArrowAngle: 135,
+                AxisArrowLineThickness: 1,  
+                AxisArrowLineColor: 'black'
+            }";
+$minor_grid_lines = "{
+                xStep: 0.1,
+                yStep: 0.1,
+                lineWidth: 0.2,
+                lineColor: 0.5,
+                checkmark_offset: 3,
+                checkmark_color: 'grey',
+                checkmark_width: 0.5
+            }"; 
+$major_grid_lines = "{
+                xStep: 1,
+                yStep: 1,
+                lineWidth: 0.5,
+                lineColor: 0.5,
+                checkmark_offset: 5,
+                checkmark_color: 'black',
+                checkmark_width: 0.8
+            }";
